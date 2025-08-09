@@ -14,17 +14,6 @@
             font-family: 'Inter', sans-serif;
             -webkit-print-color-adjust: exact;
         }
-        @media print {
-            body {
-                font-size: 11pt;
-            }
-            .no-print {
-                display: none;
-            }
-            .page-break {
-                page-break-after: always;
-            }
-        }
         .contract-container {
             max-width: 800px;
             margin: auto;
@@ -41,6 +30,22 @@
             justify-content: center;
             color: #aaa;
             font-size: 10px;
+        }
+        .page-break {
+            page-break-after: always;
+            height: 0;
+            display: block;
+        }
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
         }
     </style>
 </head>
@@ -190,7 +195,11 @@
                         </li>
                     </ol>
                 </section>
+            </div>
+            
+            <div class="page-break"></div>
 
+            <div class="space-y-6 mt-8">
                 <section>
                     <h2 class="text-lg font-bold mb-2 text-center">PASAL 4: JANGKA WAKTU PERJANJIAN</h2>
                     <ol class="list-decimal list-inside space-y-2 pl-4">
@@ -226,7 +235,11 @@
                         <li>Apabila <strong>PIHAK KEDUA</strong> tidak dapat memenuhi target minimal pekerjaan sebagaimana diatur pada ayat (2) pasal ini, maka dianggap tidak hadir, maka <strong>PIHAK PERTAMA</strong> berhak melakukan penyesuaian atau pemotongan upah secara proporsional (prorata) berdasarkan hitungan hari kerja pada bulan tersebut.</li>
                     </ol>
                 </section>
+            </div>
+            
+            <div class="page-break"></div>
 
+            <div class="space-y-6 mt-8">
                 <section>
                     <h2 class="text-lg font-bold mb-2 text-center">PASAL 8: PEMUTUSAN HUBUNGAN KERJA</h2>
                     <ol class="list-decimal list-inside space-y-2 pl-4">
@@ -291,10 +304,11 @@
             
             const opt = {
                 margin:       [0.5, 0.5, 0.5, 0.5],
-                filename:     'PKM_Merchant_Acquisition.pdf',
+                filename:     'PKM_Merchant_Acquisition_Fixed.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['css', 'legacy'], after: '.page-break' }
             };
 
             html2pdf().from(element).set(opt).save();

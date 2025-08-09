@@ -134,26 +134,26 @@
 
             <div class="mt-16 pt-8 border-t">
                 <p class="text-center font-semibold mb-12">Persetujuan Lampiran</p>
-                <div class="grid grid-cols-2 gap-8 text-center">
-                    <div>
-                        <p class="mb-2"><strong>PIHAK PERTAMA</strong></p>
-                        <div style="height: 120px;" class="flex flex-col justify-end pb-2">
-                            <p class="text-sm">&nbsp;</p>
-                        </div>
-                        <div class="h-px bg-gray-400"></div>
-                        <p class="font-bold mt-2">(Aderino Arya Nanda)</p>
-                        <p class="text-sm text-gray-600">Chief Executive Officer</p>
-                    </div>
-                    <div>
-                        <p class="mb-2"><strong>PIHAK KEDUA</strong></p>
-                        <div style="height: 120px;" class="flex flex-col justify-end pb-2">
-                            <p class="text-sm">&nbsp;</p>
-                        </div>
-                        <div class="h-px bg-gray-400"></div>
-                        <p class="font-bold mt-2">(______________________)</p>
-                        <p class="text-sm text-gray-600">Merchant Acquisition Representative</p>
-                    </div>
-                </div>
+                <table class="w-full text-center">
+                    <tbody>
+                        <tr>
+                            <td class="w-1/2 px-4">
+                                <p class="mb-2"><strong>PIHAK PERTAMA</strong></p>
+                                <div style="height: 120px;"></div>
+                                <div class="border-t border-gray-400 w-3/4 mx-auto"></div>
+                                <p class="font-bold mt-2">(Aderino Arya Nanda)</p>
+                                <p class="text-sm text-gray-600">Chief Executive Officer</p>
+                            </td>
+                            <td class="w-1/2 px-4">
+                                <p class="mb-2"><strong>PIHAK KEDUA</strong></p>
+                                <div style="height: 120px;"></div>
+                                <div class="border-t border-gray-400 w-3/4 mx-auto"></div>
+                                <p class="font-bold mt-2">(______________________)</p>
+                                <p class="text-sm text-gray-600">Merchant Acquisition Representative</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
@@ -167,12 +167,10 @@
             class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
             Download PDF
         </button>
-        <a href="./index.html">
-            <button id="goBack"
-                class="bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
-                Kembali ke Kontrak
-            </button>
-        </a>
+        <button id="goBack"
+            class="bg-yellow-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition duration-300">
+            Kembali ke Kontrak
+        </button>
     </div>
 
     <script>
@@ -182,7 +180,7 @@
                 margin: [0.5, 0.5, 0.5, 0.5],
                 filename: 'Lampiran_A_Skema_Insentif.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
             html2pdf().from(element).set(opt).save();
